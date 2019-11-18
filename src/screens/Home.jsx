@@ -7,8 +7,19 @@ const Home = props => {
 
   return (
     <Container style={styles.container}>
-      <Button info onPress={() => navigate('Animation')}>
+      <Button
+        style={styles.navButton}
+        info
+        onPress={() => navigate('Animation')}
+      >
         <Text>Animation</Text>
+      </Button>
+      <Button
+        style={styles.navButton}
+        info
+        onPress={() => navigate('Accessibility')}
+      >
+        <Text>Accessibility</Text>
       </Button>
     </Container>
   );
@@ -16,9 +27,11 @@ const Home = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  navButton: {
+    marginVertical: 10,
   },
 });
 
