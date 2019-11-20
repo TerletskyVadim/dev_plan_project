@@ -21,6 +21,13 @@ const Home = props => {
       >
         <Text>Accessibility</Text>
       </Button>
+      <Button
+        style={styles.navButton}
+        info
+        onPress={() => navigate('UX')}
+      >
+        <Text>UX</Text>
+      </Button>
     </Container>
   );
 };
