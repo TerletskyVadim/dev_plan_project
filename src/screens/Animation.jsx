@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Animated, StyleSheet } from 'react-native';
 import { Container, Button, Text } from 'native-base';
 
 const Animation = () => {
+  let animValue = 0;
+
   const anim = new Animated.Value(0);
+  const animListener = anim.addListener(({ value }) => {
+    animValue = value;
+    animValue > 6 && anim.setValue(0);
+  });
+
+  useEffect(() => () => anim.removeListener(animListener));
+
   const rotate = anim.interpolate({
     inputRange: [0, 6],
     outputRange: ['0deg', '360deg'],
@@ -14,13 +23,13 @@ const Animation = () => {
   });
 
   const runAnim = () => {
-    const nextVal = anim._value + 1;
+    const nextVal = animValue + 1;
 
     Animated.spring(anim, {
       toValue: nextVal,
       bounciness: 15,
       useNativeDriver: true,
-    }).start(() => anim.setValue(nextVal));
+    }).start();
   };
 
   return (
