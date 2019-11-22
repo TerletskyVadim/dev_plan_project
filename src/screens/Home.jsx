@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Button, Text } from 'native-base';
+import TestNativeModule from 'react-native-test-native-module';
 
 const Home = props => {
   const navigate = screen => props.navigation.navigate(screen);
@@ -21,11 +22,7 @@ const Home = props => {
       >
         <Text>Accessibility</Text>
       </Button>
-      <Button
-        style={styles.navButton}
-        info
-        onPress={() => navigate('UX')}
-      >
+      <Button style={styles.navButton} info onPress={() => navigate('UX')}>
         <Text>UX</Text>
       </Button>
     </Container>
